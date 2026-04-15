@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Alembic
+# (versions/ коммитим — это история миграций)
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Node
+node_modules/
+.next/
+out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
