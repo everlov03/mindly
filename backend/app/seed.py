@@ -101,9 +101,9 @@ def seed():
         if not db.query(Mood).first():
             db.add_all([Mood(**m) for m in MOODS])
             db.commit()
-            print(f"✓ Добавлено {len(MOODS)} настроений")
+            print(f"[OK] Добавлено {len(MOODS)} настроений")
         else:
-            print("· Настроения уже есть, пропускаем")
+            print("[--] Настроения уже есть, пропускаем")
 
         # Категории и элементы активностей
         if not db.query(ActivityCategory).first():
@@ -114,9 +114,9 @@ def seed():
                 for label, emoji in cat_data["items"]:
                     db.add(ActivityItem(category_id=cat.id, user_id=None, label=label, emoji=emoji))
             db.commit()
-            print(f"✓ Добавлено {len(CATEGORIES)} категорий активностей")
+            print(f"[OK] Добавлено {len(CATEGORIES)} категорий активностей")
         else:
-            print("· Категории уже есть, пропускаем")
+            print("[--] Категории уже есть, пропускаем")
 
     finally:
         db.close()
