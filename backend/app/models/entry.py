@@ -2,6 +2,7 @@ from sqlalchemy import (
     Column, Integer, String, Date, Text, DateTime,
     ForeignKey, UniqueConstraint, func,
 )
+from sqlalchemy.orm import relationship
 from app.core.db import Base
 
 
@@ -16,6 +17,9 @@ class Entry(Base):
     note = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+    activities = relationship("EntryActivity", lazy="select")
+    photos = relationship("EntryPhoto", lazy="select")
 
 
 class EntryActivity(Base):
